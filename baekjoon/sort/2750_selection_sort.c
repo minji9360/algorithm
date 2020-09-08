@@ -10,10 +10,17 @@ int		main(void)
 	
 	scanf("%d", &N);
 	for (i = 0; i < N; i++)
+	{
 		scanf("%d", &array[i]);
+		if (array[i] > 1000 || array[i] < 1)
+		{
+			printf("입력 값의 범위를 확인해주세요");
+			return (0);
+		}
+	}
 	for (i = 0; i < N; i++)
 	{
-		min = 99999;
+		min = 1001;
 		for (j = i; j < N; j++)
 			if (array[j] < min)
 			{
