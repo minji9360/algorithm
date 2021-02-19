@@ -1,20 +1,24 @@
 inputData = input()
-flag = number = 0
+number = result = flag = 0
 array = []
 
-for i in inputData:
-    if "0" <= i <= "9":
-        number = number * 10 + int(i)
-        print(number)
-        # if flag == 0:
-        #     continue
-        flag = 0
+for i in range(len(inputData)):
+    if "0" <= inputData[i] <= "9":
+        number = number * 10 + int(inputData[i])
     else:
-        flag = 1
-    if flag == 1:
         array.append(number)
-        array.append(i)
+        array.append(inputData[i])
         number = 0
-    if flag == 0 and number != "":
+    if i == len(inputData) - 1:
         array.append(number)
-print(array)
+
+for i in range(len(array)):
+    if array[i] == "-":
+        flag = 1
+        continue
+    if flag == 0 and type(array[i]) == int:
+        result += int(array[i])
+    elif flag == 1 and type(array[i]) == int:
+        result -= int(array[i])
+
+print(result)
