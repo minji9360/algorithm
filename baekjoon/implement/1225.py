@@ -1,9 +1,11 @@
+from itertools import product
+
 num1, num2 = input().split()
-num1, num2 = list(num1), list(num2)
+num = [list(map(int, num1)), list(map(int, num2))]
+
+num = list(product(*num))
 result = 0
 
-for a in num1:
-    for b in num2:
-        result += int(a) * int(b)
-
+for x in num:
+    result += x[0] * x[1]
 print(result)
